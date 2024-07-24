@@ -20,5 +20,7 @@ jobs:
           java-version: 17
           cache: maven
 
-      - name: Build and test with Maven
-        run: mvn --batch-mode package pom.xml
+      - name: Build  with Maven
+        run:
+          mvn clean
+          mvn -B package --file pom.xml
