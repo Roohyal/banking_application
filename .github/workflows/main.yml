@@ -20,5 +20,11 @@ jobs:
           java-version: 17
           cache: maven
 
+      - name: Check Java version
+        run: java -version
+
+      - name: Check Maven version
+        run: mvn -v
+
       - name: Build and test with Maven
-        run: mvn package --batch-mode
+        run: mvn --batch-mode package
