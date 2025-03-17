@@ -22,3 +22,11 @@ jobs:
 
       - name: Build with Maven (skip tests)
         run: mvn package --batch-mode -DskipTests
+
+      - name: Build Docker Image
+        uses: actions/build-push-action@v2
+        with:
+          context: .
+          dockerfile: Dockerfile
+          push: false
+          tags: ${{ secrets.DOCKER_USERNAME}}/Royal-Banking-Application:$(date-'%Y-%m-%d%H-%M-%S')
